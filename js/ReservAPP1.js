@@ -1,5 +1,44 @@
 //reserva
 let reserva = []
+let reservaOk = false;
+const titulo = document.getElementById("titulo");
+const parrafoApp = document.getElementById("parrafo")
+const botonApp = document.getElementById("boton");
+const contenidoTitulo = "Bienvenido a ReservAPP";
+const contenidoTitulo2 = "Gracias por usar ReservAPP";
+const cambioParrafo1 = "Clasificanos en la APP STORE";
+const cambioParrafo2 = "Siguenos en nuestras redes sociales";
+
+cambiarTexto(parrafoApp, cambioParrafo1); // se inicia con texto1
+
+
+const intervalo = setInterval(()=>{
+	if(parrafoApp.innerText == cambioParrafo1){
+		cambiarTexto(parrafoApp, cambioParrafo2)
+}else{
+        cambiarTexto(parrafoApp, cambioParrafo1)
+}
+},2000);
+
+
+
+//boton
+botonApp.addEventListener("click", ()=>{
+    let info = titulo.innerText;
+    if (info === contenidoTitulo){
+        cambiarTexto(titulo, contenidoTitulo2)
+
+    }else{
+        cambiarTexto(titulo, contenidoTitulo)
+    }
+})
+
+function cambiarTexto(id, texto){
+    id.innerText = texto;
+}
+
+cambiarTexto(titulo, contenidoTitulo);
+
 //crea una reserva, hora, mesa y comida.
 class Mireserva {
     constructor( reserva , horario , mesa){
@@ -15,8 +54,10 @@ const reserva2 = new Mireserva ("Rockefeller" , ["Mañana", "Tarde" , "Noche"], 
 
 //selecciona reserva
 const seleccionarBar = () =>{
-    const seleccionUsuario = prompt("Elige la reserva que quieren entre los bares: Vrinda  Rockefeller").toLowerCase()
+    const seleccionUsuario = prompt("Elige la reserva que quieren entre los bares: Vrinda  Rockefeller")
+    if(seleccionUsuario != null){
 
+    seleccionUsuario.toLowerCase();
     switch(seleccionUsuario) {
         case "vrinda":
             console.log("Elegiste Vrinda")
@@ -30,13 +71,12 @@ const seleccionarBar = () =>{
             console.log("Elegir un bar correcto")
             break
     }
-    //uso el confirm, porque sino queda en un bucle infinito 
-    // no lo dimos, pero lo saque de otro lado...
+    
     if (confirm("¿Desea hacer reserva en otro bar y horario?")){
     seleccionarBar()
     }
 }
-
+}
 //caracteristicas de la reserva
 const editarReservaSeleccionada = (ReservaSeleccionada) => {
     const reservaElegida = {
@@ -48,7 +88,7 @@ const editarReservaSeleccionada = (ReservaSeleccionada) => {
     reservaElegida.mesa = prompt("Seleccione una ubicacion para su reserva: " + ReservaSeleccionada.mesa.join(" - ") ).toLowerCase()
     reservaElegida.cantidadPersonas = Number(prompt("¿Para cuantas personas reserva? "))
     reservaElegida.horario = prompt("Seleccione un horario dentro de los que tenemos disponibles: " + ReservaSeleccionada.horario.join(" - ")).toLowerCase()
-
+    reservaOk = true
     return reservaElegida
 }
 
@@ -58,13 +98,16 @@ const suReserva = () => {
     for (const producto of reserva) {
         suReserva += " Bar: " + producto.reserva + " Turno de Servicio: " + producto.horario + " Ubicacion: " + producto.mesa + " Cantidad de personas: " + producto.cantidadPersonas
     }
+    
     return suReserva
 }
 
 // ejecucion
 seleccionarBar()
-
-alert('Gracias por reservar en ReservAPP, su reserva es:' + suReserva())
-console.log('Gracias por reservar en ReservAPP, su reserva en:' + suReserva())
-
+if(reservaOk == true){
+    alert('Gracias por reservar en ReservAPP, su reserva es:' + suReserva())
+    console.log('Gracias por reservar en ReservAPP, su reserva en:' + suReserva())
+    reservaOk = false
+    cambiarTexto(titulo, contenidoTitulo2)
+}
 

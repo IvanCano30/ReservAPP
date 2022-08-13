@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(221, 139, 17);
+}
+
+.container{
+    background-color: blue;
+    text-align: center;
+    justify-items: center;
+    
+
+}
+
+.titulo__app{
+    background-color: aqua;
+
+}
+
+.boton__app{
+    background-color: red;
+}
