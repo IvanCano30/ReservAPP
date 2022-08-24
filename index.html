@@ -12,7 +12,6 @@
 <body>
     <section>
         <header id="encabezado">
-            
         </header>
     </section>
     <!--titulo y header-->
@@ -21,7 +20,6 @@
         <p id="parrafo" class="parrafo__app">Esta app se encarga de tomar reservas de bares, ayuda y facilita tus reservas</p>
         <button id="boton" type="button" class="boton__app">Haz click para cambiar el Titulo</button>
     </div>
-
     <!-- inicia selector de bares -->
     <div class="containerForm">
         <form action="signup.html" method="post" id="signup">
@@ -39,56 +37,40 @@
             <div class="containerSelect">
                 <div id="container__bares">
                     <select name="Opciones de bares" id="opcionBares">
-                        
                         <option id="bares">Vrinda</option>
-                        
                         <option id="bares">Rockefeller</option>
-                        
                         <option id="bares">OTRO BAR</option>
-                        
-                        </select>
-                        
-                    </div>
-                    <div id="container__turno">
-                        <select name="en que turno" id="horario">
-                            
-                            <option id="turno">mañana</option>
-                            
-                            <option id="turno">tarde</option>
-                            
-                            <option id="turno">noche</option>
-                            
-                            </select>
-                    </div>
-                    <div id="container__personas">
-                        <input type="number" id="personas" name="cantidadDePersonas" >
-                    </div>
-                    <div id="container__mesa">
-                        <select name="Ubicacion" id="ubicacionMesa">
-                            
-                            <option id="ubicacion">adentro</option>
-                            
-                            <option id="ubicacion">afuera</option>
-                            
-                            <option id="ubicacion">terraza</option>
-                            
-                        </select>
-                    </div>
-    
+                    </select>
+                </div>
+                <div id="container__turno">
+                    <select name="en que turno" id="horario">
+                        <option id="turno">mañana</option>
+                        <option id="turno">tarde</option>
+                        <option id="turno">noche</option>
+                    </select>
+                </div>
+                <div id="container__personas">
+                    <input type="number" id="personas" name="cantidadDePersonas" >
+                </div>
+                <div id="container__mesa">
+                    <select name="Ubicacion" id="ubicacionMesa">
+                        <option id="ubicacion">adentro</option>
+                        <option id="ubicacion">afuera</option>
+                        <option id="ubicacion">terraza</option>
+                    </select>
+                </div>
             </div>
             <div class="field">
                 <button type="submit" id="botonAplicar" class="full">Aplicar reserva</button>
             </div>
-            <div id="divVacio">
-
+            <div id="divVacio" class="divVacio">
+            <!-- CODIGO INYECTADO DESDE JS -->
             </div>
         </form>
     </div>
     
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./js/ReservAPP1.js" type="module"></script>
+    <script src="./js/Titulos.js" type="module"></script>
     <script src="./js/formularioReserva.js" type="module"></script>
-    
 </body>
-
 </html>

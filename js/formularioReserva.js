@@ -1,14 +1,11 @@
 //array reservas
-let reservas = []
+let reservas
 //alerta de bienvenida
 swal("Bienvenido a reservAPP!");
 window.onload = function(){
     
    // Recuperar el localstorage
-    if(localStorage.getItem("reserva").length > 0){
-        reservas = JSON.parse(localStorage.getItem("reserva")); 
-        
-    }  
+	reservas = JSON.parse(localStorage.getItem('reservas')) || [] 
 
 }
 // mostrar mensaje cuando se use el input
@@ -73,7 +70,6 @@ form.addEventListener("submit", function (event) {
         let ubicacionMesa = form.elements["ubicacionMesa"].value
         let horario = form.elements["horario"].value
         let bar = form.elements["opcionBares"].value
-
         let nuevaReserva = new miReserva (bar , horario, ubicacionMesa, cantPersonas, nombre, email)
         reservas.push(nuevaReserva)
         //alerta de success
@@ -81,7 +77,7 @@ form.addEventListener("submit", function (event) {
     }
     //localstorage
     localStorage.setItem ("reserva", JSON.stringify(reservas))
-    
+    renderizarReserva(reservas)
     
 });
 //crea una reserva, hora, mesa y comida.
@@ -92,24 +88,38 @@ class miReserva {
         this.ubicacionMesa = ubicacionMesa
         this.cantPersonas = cantPersonas
         this.nombre = nombre
-        this.email = email        
+        this.email = email     
     }
 }
 
 //DOM de la reserva finalizada
 
-let reservaConfirmada = document.getElementById("divVacio");
-let aplicarReserva = document.getElementById("botonAplicar");
+// let reservaConfirmada = document.getElementById("divVacio");
+// let aplicarReserva = document.getElementById("botonAplicar");
 
-aplicarReserva.addEventListener("click", ()=>{
-    reservaConfirmada.innerText = '
-	${nuevaReserva.nombre}
-	
-	'
-	
-    
-})
+// aplicarReserva.addEventListener("click", ()=>{
+//     reservaConfirmada.innerText = '
+// 	${nuevaReserva.nombre}
+// 	'
+// })
 
+
+const contenedorDeReservas = document.querySelector("#divVacio")
+
+
+function renderizarReserva(array){
+	array.forEach(reserva => {
+		const cardReserva = document.createElement("div")
+		cardReserva.classList.add("cardReserva")
+		cardReserva.innerHTML = `<h2>${reserva.nombre}</h2>
+		<span>Correo: ${reserva.email}</span>
+		<span>Bar: ${reserva.bar}</span>
+		<span>Turno: ${reserva.horario}</span>
+		<span>Cantidad de Personas: ${reserva.cantPersonas}</span>
+		<span>Ubicacion: ${reserva.ubicacionMesa}</span>`
+		contenedorDeReservas.append(cardReserva)
+	});
+}
 
 
 
