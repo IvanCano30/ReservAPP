@@ -5,21 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
     <title>Primer ReservAPP</title>
 </head>
 <body>
+    <section>
+        <header id="encabezado">
+            
+        </header>
+    </section>
+    <!--titulo y header-->
     <div class="container">
         <h1 id="titulo" class="titulo__app"></h1><!--titulo js-->
         <p id="parrafo" class="parrafo__app">Esta app se encarga de tomar reservas de bares, ayuda y facilita tus reservas</p>
         <button id="boton" type="button" class="boton__app">Haz click para cambiar el Titulo</button>
     </div>
+
+    <!-- inicia selector de bares -->
+    <div class="containerForm">
+        <form action="signup.html" method="post" id="signup">
+            <h1>Sign Up</h1>
+            <div class="field">
+                <label for="name">Nombre y Apellido :</label>
+                <input type="text" id="name" name="nombreApellido" placeholder="ingrese nombre y apellido" />
+                <small></small>
+            </div>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="ingrese Email" />
+                <small></small>
+            </div>
+            <div class="containerSelect">
+                <div id="container__bares">
+                    <select name="Opciones de bares" id="opcionBares">
+                        
+                        <option id="bares">Vrinda</option>
+                        
+                        <option id="bares">Rockefeller</option>
+                        
+                        <option id="bares">OTRO BAR</option>
+                        
+                        </select>
+                        
+                    </div>
+                    <div id="container__turno">
+                        <select name="en que turno" id="horario">
+                            
+                            <option id="turno">mañana</option>
+                            
+                            <option id="turno">tarde</option>
+                            
+                            <option id="turno">noche</option>
+                            
+                            </select>
+                    </div>
+                    <div id="container__personas">
+                        <input type="number" id="personas" name="cantidadDePersonas" >
+                    </div>
+                    <div id="container__mesa">
+                        <select name="Ubicacion" id="ubicacionMesa">
+                            
+                            <option id="ubicacion">adentro</option>
+                            
+                            <option id="ubicacion">afuera</option>
+                            
+                            <option id="ubicacion">terraza</option>
+                            
+                        </select>
+                    </div>
     
+            </div>
+            <div class="field">
+                <button type="submit" class="full">Aplicar reserva</button>
+            </div>
+        </form>
+    </div>
     
-    <script src="./js/ReservAPP1.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/ReservAPP1.js" type="module"></script>
+    <script src="./js/formularioReserva.js" type="module"></script>
+    
 </body>
 
 </html>
