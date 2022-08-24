@@ -56,7 +56,7 @@ const form = document.querySelector("#signup");
 
 const NAME_REQUIRED = "por favor ingrese su nombre y apellido";
 const EMAIL_REQUIRED = "por favor ingrese su email";
-const EMAIL_INVALID = "Please enter a correct email address format";
+const EMAIL_INVALID = "por favor ingrese un email correcto";
 
 form.addEventListener("submit", function (event) {
 	// presentacion de la funcion
@@ -96,7 +96,19 @@ class miReserva {
     }
 }
 
+//DOM de la reserva finalizada
 
+let reservaConfirmada = document.getElementById("divVacio");
+let aplicarReserva = document.getElementById("botonAplicar");
+
+aplicarReserva.addEventListener("click", ()=>{
+    reservaConfirmada.innerText = '
+	${nuevaReserva.nombre}
+	
+	'
+	
+    
+})
 
 
 
