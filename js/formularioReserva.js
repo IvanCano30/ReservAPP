@@ -116,11 +116,18 @@ function renderizarReserva(array){
 		<span>Bar: ${reserva.bar}</span>
 		<span>Turno: ${reserva.horario}</span>
 		<span>Cantidad de Personas: ${reserva.cantPersonas}</span>
-		<span>Ubicacion: ${reserva.ubicacionMesa}</span>`
+		<span>Ubicacion: ${reserva.ubicacionMesa}</span>
+		<button id="eliminarReserva">Eliminar Reserva: ${reserva.ubicacionMesa}</span>`
 		contenedorDeReservas.append(cardReserva)
 	});
+	document.querySelector("#eliminarReserva").addEventListener("click", eliminarReservaGuardada)
 }
 
+
+function eliminarReservaGuardada() {
+	localStorage.clear()
+	contenedorDeReservas.innerHTML = ""
+}
 
 
 
