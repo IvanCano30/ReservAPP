@@ -13,7 +13,7 @@ function showMessage(input, message, type) {
 	// obtener un elemento y hacer un mensanje
 	const msg = input.parentNode.querySelector("small");
 	msg.innerText = message;
-	// input class
+	// input class con ternario
 	input.className = type ? "success" : "error";
 	return type;
 }
@@ -93,17 +93,6 @@ class miReserva {
 }
 
 //DOM de la reserva finalizada
-
-// let reservaConfirmada = document.getElementById("divVacio");
-// let aplicarReserva = document.getElementById("botonAplicar");
-
-// aplicarReserva.addEventListener("click", ()=>{
-//     reservaConfirmada.innerText = '
-// 	${nuevaReserva.nombre}
-// 	'
-// })
-
-
 const contenedorDeReservas = document.querySelector("#divVacio")
 
 
