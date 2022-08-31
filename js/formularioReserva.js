@@ -4,7 +4,7 @@ let reservas
 swal("Bienvenido a reservAPP!");
 window.onload = function(){
     
-   // Recuperar el localstorage
+   	// Recuperar el localstorage
 	reservas = JSON.parse(localStorage.getItem('reservas')) || [] 
 
 }
@@ -51,7 +51,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 
 const form = document.querySelector("#signup");
 
-const NAME_REQUIRED = "por favor ingrese su nombre y apellido";
+const NAME_REQUIRED = "por favor ingrese su nombre completo correctamente";
 const EMAIL_REQUIRED = "por favor ingrese su email";
 const EMAIL_INVALID = "por favor ingrese un email correcto";
 

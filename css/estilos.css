@@ -5,30 +5,68 @@
 }
 
 body {
-    /*background-image: url("/img/fondo2.jpeg");*/
-    background-color: white;
+    background-image: url("/img/fondo2.jpeg");
+    background-color: rgb(248, 217, 217);
     background-repeat: no-repeat;
     background-size: cover;
-    }
+}
 
+#header__pagina, #footer__pagina{
+    background-color: rgb(255, 69, 69);
+        height: 20px;
+    }
+    
     .containerForm{
-        grid-template-columns: auto;
-        grid-template-rows: auto;
+        background-color: rgb(137, 117, 117);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 50%;
+        margin:20px auto;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 30px;
+        box-shadow: 3px 2px  #000000;
+        
     }
 
-.divVacio{
-    display: flex;
-    margin: 30px 0;
+    .divVacio{
+        
+        display: flex;
+        margin: 30px 0;
+        
+    }
+    
+    .cardReserva{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(137, 117, 117);
+        width: 300px;
+        margin: auto;
+        padding: 20px;
 
 }
 
-.cardReserva{
+.titulo__registro, .recuadros__form, .field{
+    text-align: center;
+    
+}
+#ubicacionMesa, #personas, #horario, #opcionBares, .field{
+    margin: 10px auto;
+    text-align: center;
+    
+    
+}
+#boton__aplicar{
+    
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(204, 203, 203);
-    width: 300px;
-    margin: auto;
-    padding: 20px;
+    align-items: end;
+    flex-direction:column-reverse;
+    margin:10px 0;
+}
+.full{
+    background-color: rgb(0, 251, 0);
 }

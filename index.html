@@ -11,63 +11,72 @@
 </head>
 <body>
     <section>
-        <header id="encabezado">
+        <header id="header__pagina">
         </header>
     </section>
     <!--titulo y header-->
     <div class="container">
-        <h1 id="titulo" class="titulo__app"></h1><!--titulo js-->
+        <h2 id="titulo" class="titulo__app"></h2><!--titulo js-->
         <p id="parrafo" class="parrafo__app">Esta app se encarga de tomar reservas de bares, ayuda y facilita tus reservas</p>
         <button id="boton" type="button" class="boton__app">Haz click para cambiar el Titulo</button>
     </div>
-    <!-- inicia selector de bares -->
+    <!-- inicia selector de reservas -->
     <div class="containerForm">
         <form action="signup.html" method="post" id="signup">
-            <h1>Registra tu RESERVA</h1>
-            <div class="field">
+            <h1 class="titulo__registro">Registra tu RESERVA</h1>
+            <div class="field" >
                 <label for="name">Nombre y Apellido :</label>
                 <input type="text" id="name" name="nombreApellido" placeholder="ingrese nombre y apellido" />
                 <small></small>
             </div>
-            <div class="field">
+            <div class="field" >
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="ingrese Email" />
+                <input type="text" id="email"  name="email" placeholder="ingrese Email" />
                 <small></small>
+                
             </div>
             <div class="containerSelect">
-                <div id="container__bares">
-                    <select name="Opciones de bares" id="opcionBares">
+                <div id="container__bares" class="recuadros__form">
+                    <select name="Opciones de bares" id="opcionBares" placeholder="elige un bar">
+                        <option id="bares">Elige un bar</option>
                         <option id="bares">Vrinda</option>
                         <option id="bares">Rockefeller</option>
                         <option id="bares">OTRO BAR</option>
                     </select>
                 </div>
-                <div id="container__turno">
+                <div id="container__turno" class="recuadros__form">
                     <select name="en que turno" id="horario">
+                        <option id="turno">Elige un turno</option>
                         <option id="turno">mañana</option>
                         <option id="turno">tarde</option>
                         <option id="turno">noche</option>
                     </select>
                 </div>
-                <div id="container__personas">
-                    <input type="number" id="personas" name="cantidadDePersonas" >
+                <div id="container__personas" class="recuadros__form" >
+                    
+                    <input type="number" id="personas" name="cantidadDePersonas" placeholder="ingrese cantidad de personas" >
                 </div>
-                <div id="container__mesa">
+                <div id="container__mesa" class="recuadros__form">
                     <select name="Ubicacion" id="ubicacionMesa">
+                        <option id="ubicacion">Elige ubicacion</option>
                         <option id="ubicacion">adentro</option>
                         <option id="ubicacion">afuera</option>
                         <option id="ubicacion">terraza</option>
                     </select>
                 </div>
             </div>
-            <div class="field">
-                <button type="submit" id="botonAplicar" class="full">Aplicar reserva</button>
-            </div>
-            <div id="divVacio" class="divVacio">
-            <!-- CODIGO AÑADIDO DESDE JS -->
+            <div class="field" id="boton__aplicar">
+                <button type="submit" id="botonAplicar" class="full">Guardar reserva</button>
             </div>
         </form>
     </div>
+    <div id="divVacio" class="divVacio">
+    <!-- CODIGO AÑADIDO DESDE JS -->
+    </div>
+
+    <footer id="footer__pagina">
+
+    </footer>
     
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./js/Titulos.js" type="module"></script>
