@@ -1,12 +1,56 @@
+let Mesas = [ ]
+    
+const getAllProducts = async () => {
+    try{
+        const response = await fetch('json/mesas.json')
+        Mesas = await response.json()
+        // renderizarMesas(mesas)
+    }catch{
+        console.log("hubo un error");
+    }   
+}  
+  //EJECUCIONES
+getAllProducts()
+
+
+    let liberacionMesa = (id) =>{
+        Mesas.forEach((mesa) =>{
+            if(mesa.id == id){
+                mesa.disponibilidad = true
+                
+            }
+        })
+        
+    }
+
+
+    let ocuparMesa = (id) =>{
+		let bandera
+        Mesas.forEach((mesa) => {
+            if(mesa.id == id) {
+				if(mesa.disponibilidad == true ){
+					mesa.disponibilidad = false
+					bandera = true
+				}else{
+					alert("mesa ocupada, busca otra")
+					bandera = false
+				}
+                
+                
+            }
+        })
+		return bandera
+    }
+
+//--------------
 //array reservas
 let reservas
 //alerta de bienvenida
-swal("Bienvenido a reservAPP!");
+//swal("Bienvenido a reservAPP!");
 window.onload = function(){
     
    	// Recuperar el localstorage
 	reservas = JSON.parse(localStorage.getItem('reservas')) || [] 
-
 }
 // mostrar mensaje cuando se use el input
 function showMessage(input, message, type) {
@@ -70,53 +114,61 @@ form.addEventListener("submit", function (event) {
         let ubicacionMesa = form.elements["ubicacionMesa"].value
         let horario = form.elements["horario"].value
         let bar = form.elements["opcionBares"].value
-        let nuevaReserva = new miReserva (bar , horario, ubicacionMesa, cantPersonas, nombre, email)
-        reservas.push(nuevaReserva)
+		let mesa = form.elements["selectMesa"].value
+        let nuevaReserva = new miReserva (bar , horario, ubicacionMesa, cantPersonas, nombre, email, mesa)
+        // reservas.push(nuevaReserva)
+		//ocuparMesa(mesa)
+		if(ocuparMesa(mesa)){
+			reservas.push(nuevaReserva)
+		}
+		console.log(Mesas)
+
         //alerta de success
-        swal("Gracias por reservar!", nombre ,  "success");
+        //swal("Gracias por reservar!", nombre ,  "success");
     }
     //localstorage
     localStorage.setItem ("reserva", JSON.stringify(reservas))
-    renderizarReserva(reservas)
+    // renderizarReserva(reservas)
     
 });
 //crea una reserva, hora, mesa y comida.
 class miReserva {
-    constructor( bar , horario , ubicacionMesa, cantPersonas, nombre, email){
+    constructor( bar , horario , ubicacionMesa, cantPersonas, nombre, email, mesa){
         this.bar = bar
         this.horario = horario
         this.ubicacionMesa = ubicacionMesa
         this.cantPersonas = cantPersonas
         this.nombre = nombre
-        this.email = email     
+        this.email = email   
+		this.mesa = mesa  
     }
 }
 
 //DOM de la reserva finalizada
-const contenedorDeReservas = document.querySelector("#divVacio")
+// const contenedorDeReservas = document.querySelector("#divVacio")
 
 
-function renderizarReserva(array){
-	array.forEach(reserva => {
-		const cardReserva = document.createElement("div")
-		cardReserva.classList.add("cardReserva")
-		cardReserva.innerHTML = `<h2>${reserva.nombre}</h2>
-		<span>Correo: ${reserva.email}</span>
-		<span>Bar: ${reserva.bar}</span>
-		<span>Turno: ${reserva.horario}</span>
-		<span>Cantidad de Personas: ${reserva.cantPersonas}</span>
-		<span>Ubicacion: ${reserva.ubicacionMesa}</span>
-		<button id="eliminarReserva">Eliminar Reserva: ${reserva.ubicacionMesa}</span>`
-		contenedorDeReservas.append(cardReserva)
-	});
-	document.querySelector("#eliminarReserva").addEventListener("click", eliminarReservaGuardada)
-}
+// function renderizarReserva(array){
+// 	array.forEach(reserva => {
+// 		const cardReserva = document.createElement("div")
+// 		cardReserva.classList.add("cardReserva")
+// 		cardReserva.innerHTML = `<h2>${reserva.nombre}</h2>
+// 		<span>Correo: ${reserva.email}</span>
+// 		<span>Bar: ${reserva.bar}</span>
+// 		<span>Turno: ${reserva.horario}</span>
+// 		<span>Cantidad de Personas: ${reserva.cantPersonas}</span>
+// 		<span>Ubicacion: ${reserva.ubicacionMesa}</span>
+// 		<button id="eliminarReserva">Eliminar Reserva: ${reserva.ubicacionMesa}</span>`
+// 		contenedorDeReservas.append(cardReserva)
+// 	});
+// 	document.querySelector("#eliminarReserva").addEventListener("click", eliminarReservaGuardada)
+// }
 
 
-function eliminarReservaGuardada() {
-	localStorage.clear()
-	contenedorDeReservas.innerHTML = ""
-}
+// function eliminarReservaGuardada() {
+// 	localStorage.clear()
+// 	contenedorDeReservas.innerHTML = ""
+// }
 
 
 

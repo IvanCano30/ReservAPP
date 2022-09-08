@@ -12,9 +12,23 @@ body {
 }
 
 #header__pagina, #footer__pagina{
-    background-color: rgb(255, 69, 69);
-        height: 20px;
+        background-image: linear-gradient(to right top, #ff0000, #f2002f, #de0848, #c62559, #aa3563, #a4346d, #9b3676, #91387f, #933499, #8a36b8, #6f3fda, #004eff);
+        height: auto;
+        margin: 3px;
+        padding: 10px;
     }
+.imagenApp{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.whatsapp{
+    height: 20px;
+    display: inline;
+    
+}
+
     
     .containerForm{
         background-color: rgb(137, 117, 117);
@@ -54,7 +68,7 @@ body {
     text-align: center;
     
 }
-#ubicacionMesa, #personas, #horario, #opcionBares, .field{
+#ubicacionMesa, #personas, #horario, #opcionBares, .field, .selectMesa{
     margin: 10px auto;
     text-align: center;
     
